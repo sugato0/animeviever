@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+ 
+<style>
+  
+  .cta-background {
+  background-size: cover;
+  background-position: center center;
+  bottom: 0;
+  filter: blur(50px);
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.cta {
+  background: #333;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+  height: 320px;
+  overflow: hidden;
+  position: relative;
+  width: 230px;
+}
+.cta:hover img {
+  top: -10%;
+  filter: brightness(70%);
+}
+.cta:hover .text {
+  bottom: 0;
+}
+.cta img {
+  bottom: 0;
+  filter: brightness(100%);
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.5s ease-in-out;
+  width: 115%;
+}
+.cta .text {
+  bottom: -100%;
+  padding: 15px;
+  position: absolute;
+  transition: 0.5s ease-in-out;
+}
+.cta .text h2 {
+  color: #fff;
+  display: inline-block;
+  font-weight: 300;
+  margin-bottom: 5px;
+  position: relative;
+}
+.cta .text p {
+  color: #fff;
+  font-weight: 300;
+}
+
+  </style>
+
+<div class="arrow-8"></div>
+
+
+<style>
+  .container {
+      display: flex;
+      flex-wrap: wrap;
+      
+  }
+  .cta {
+      flex-basis: calc(20% - 20px); /* Измените значение на 25% для 4 столбцов и 33.33% для 3 столбцов */
+      margin: 10px;
+      padding: 10px;
+      border-radius: 4%;
+     
+      
+  }
+  .text {
+      margin-top: 10px;
+  }
+  @media (max-width: 1200px) {
+      .cta {
+          flex-basis: calc(25% - 20px); /* Измените значение на 33.33% для 3 столбцов */
+      }
+  }
+  @media (max-width: 992px) {
+      .cta {
+          flex-basis: calc(33.33% - 20px); /* Измените значение на 50% для 2 столбцов */
+      }
+  }
+  @media (max-width: 768px) {
+      .cta {
+          flex-basis: calc(50% - 20px); /* Измените значение на 100% для 1 столбца */
+      }
+  }
+</style>
+<div class="container">
+
+  {% for anime in anime_list %}
+  <a href="{% url 'anime_detail' anime.name %}" >
+    <div class="cta">
+      
+      <img src="{{ anime.image_url }}" alt="{{ anime.name }}">
+      <div class="text">
+          <h2>{{ anime.name }}</h2>
+          <p>{{anime.description}}</p>
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+
+</div>
+
+
+<!-- <div class = " row row-cols-1 row-cols-md-5 g-4">
+   <div class="container">
+    <div class="cta ">
+       <img src="https://images.pexels.com/photos/705425/pexels-photo-705425.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+       <div class="text">
+          <h2>The Title</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus temporibus voluptates exercitationem, ipsa officiis a animi esse explicabo repudiandae in, blanditiis cum quam magni? Voluptates illum earum praesentium veniam.</p>
+       </div>
+    </div>
+   </div>
+
+ </div>
+  -->
+   
+
+<!-- 
+   <div class="container ">
+    <div class="row row-cols-1 row-cols-md-5 g-4">
+      {% for anime in anime_list %}
+        <div class="col cardy styles" style = "margin: 1%;background-color: black;">
+          <div class="card h-100 styles" style = "background-color: black;">
+            <a href="{% url 'anime_detail' anime.name %}" class="card-link">
+              
+                <img src="{{ anime.image_url }}" alt="{{ anime.name }}" class="card-img-top image-wrapper">
+              
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+   -->
+
+ 
+
+
+              
+          
+      
+    
+    
+  
+  
+  
+  
+  
+  <div class="arrow-9" style="margin-top: 20%;"></div>
+{% endblock %}
+

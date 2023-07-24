@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Регистрация</h2>
+  <form id="registration-form" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Зарегистрироваться</button>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#registration-form').submit(function(e) {
+        e.preventDefault();
+
+        $.ajax({
+          url: $(this).attr('action'),
+          type: $(this).attr('method'),
+          data: $(this).serialize(),
+          success: function(response) {
+            window.location.href = "/login/";  // Перенаправление на страницу входа
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      });
+    });
+  </script>
+{% endblock %}

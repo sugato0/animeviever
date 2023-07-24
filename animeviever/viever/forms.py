@@ -1,11 +1,25 @@
-
 from django import forms
-from .models import User
+from django.contrib.auth.forms import UserCreationForm
+from .models import User,Anime
 
-class RegistrationForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
+class RegistrationForm(UserCreationForm):
+    email = forms.EmailField()
 
     class Meta:
         model = User
-        fields = ['username', 'password', 'name', 'age']
-    
+        fields = ['username', 'email', 'password1', 'password2']
+
+GENRES= (
+    ('Повседневность', 'Повседневность'),
+    ('Романтика', 'Романтика'),
+    ('Драмма', 'Драмма'),
+    ('Экшн', 'Экшн'),
+    ('Ужасы', 'Ужасы'),
+)
+
+class AnimeAdminForm(forms.ModelForm):
+    genre = forms.MultipleChoiceField(choices=GENRES)
+
+    class Meta:
+        model = Anime
+        fields = '__all__'

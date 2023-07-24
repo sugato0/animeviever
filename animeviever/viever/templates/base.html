@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>aniheart</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+
+
+
+
+    <style>
+        @media screen and (max-width: 600px) {
+        #no_view {
+        visibility: hidden;
+        display: none;
+        }
+        }
+        
+                * {
+            margin: 0;
+        }
+        html, body {
+            height: 100%;
+        
+        }
+        .wrapper {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            
+            margin: 0 auto -142px;
+            
+        }
+        
+        body {
+  background-color: #301934;
+}
+
+
+.lite {
+  font-size: 70px;
+  font-weight: 1000;
+  color: #fdfdfe;
+  text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+    0px 0px 20px #b393d3;
+  
+}
+.lite-small {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fdfdfe;
+  text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+    0px 0px 20px #b393d3;
+}
+.heads{
+  margin-top: 6%;
+  margin-left: 16%;
+}
+    </style>
+
+
+<style>
+    .search-container {
+      position: relative;
+      width: 300px;
+      margin: 0 auto;
+    }
+  
+    #search-input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+  
+    #search-input:focus {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+  
+    .search-results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      max-height: 300px;
+      overflow: auto;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+    }
+  
+    .search-results ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  
+    .search-results li {
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+  
+    .search-results li:hover {
+      background-color: #f5f5f5;
+    }
+    .header_color{
+      
+      backdrop-filter: blur(25px);
+      background: linear-gradient(81.32deg,hsla(0, 0%, 0%, 0.05) 30%,hsla(0, 0%, 100%, 0) 100%);
+      height: 70px;
+      
+    }
+    .headers{
+      left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    }
+  </style>
+  
+
+
+</head>
+<body style = "overflow-x: hidden;">
+    <header class = " headers header_color">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            
+            <div class="collapse navbar-collapse" id="navbarExample01">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item active">
+                  <a class="nav-link" aria-current="page" href="{% url 'main_video_list' %}" style="color: #fff;" >Главная</a>
+                </li>
+                
+                
+              </ul>
+            </div>
+
+          </div>
+        </nav>
+        <!-- Navbar -->
+      
+</header>
+<style>
+   #heart {
+            position:relative;
+            top: 25%;
+            left: 23%;
+            transform: translate(-50%, -50%);
+            width: 30%; /* Измените размеры на нужные */
+            height: 30%; /* Измените размеры на нужные */
+             /* Путь к изображению сердца */
+            background-repeat: no-repeat;
+            background-size: contain;
+            
+            animation: pulse 2s infinite;
+        }
+       
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+        
+</style>
+<div style = "margin-top: 20%; " >
+  <div id="heart">
+
+    <div class = " heads">
+      
+
+      <h1 class = "lite" >Aniheart</h1>
+      
+    </div>
+  </div>
+  <h4 class = "lite-small" style ="margin-left: 22%;">cердце аниме тут</h4>
+</div>
+
+
+
+
+<style>
+ .arrow-8 {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 30px auto 80px auto;
+
+}
+.arrow-8:before,
+.arrow-8:after {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    
+
+    border-left: 26px solid #b393d3;
+    border-bottom: 26px solid #b393d3;
+    animation: arrow-8 3s linear infinite;
+}
+.arrow-8:after {
+    animation: arrow-8 3s linear infinite -1.5s;
+}
+@keyframes arrow-8 {
+    0% {
+        opacity: 0;
+        transform: translate(0, -30px) rotate(-45deg);
+    }
+    10%, 90% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;  
+        transform: translate(0, 0) rotate(-45deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, 30px) rotate(-45deg);
+    }
+}
+
+
+.arrow-9 {
+    margin-top: 20%;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 30px auto 80px auto;
+
+}
+.arrow-9:before,
+.arrow-9:after {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    
+
+    border-right: 26px solid #b393d3;
+    border-top: 26px solid #b393d3;
+    animation: arrow-8 3s linear infinite;
+}
+.arrow-9:after {
+    animation: arrow-8 3s linear infinite -1.5s;
+}
+@keyframes arrow-9 {
+    0% {
+        opacity: 0;
+        transform: translate(0, -30px) rotate(-45deg);
+    }
+    10%, 90% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;  
+        transform: translate(0, 0) rotate(-45deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, 30px) rotate(-45deg);
+    }
+}
+
+
+</style>
+
+
+
+<div class = "content">
+   
+    <div class="classic_div">
+        {% block content %}
+            
+        {% endblock %}
+    </div>
+
+
+
+
+
+
+
+<!-- Footer -->
+</div>
+<style>
+
+
+.wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button1 {
+  min-width: 300px;
+  min-height: 60px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: white;
+  background: #b393d3;
+background: linear-gradient(90deg, #b393d3 0%, #ad80d9 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px #ad80d9;
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  }
+
+  .button1::before {
+content: '';
+  border-radius: 1000px;
+  min-width: calc(300px + 12px);
+  min-height: calc(60px + 12px);
+  border: 6px solid #b393d3;
+  box-shadow: 0 0 60px #b393d3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
+}
+
+.button1:hover, .button1:focus {
+  color: #b393d3;
+  transform: translateY(-6px);
+}
+
+.button1:hover::before,.button1:focus::before {
+  opacity: 1;
+}
+
+.button1::after {
+  content: '';
+  width: 30px; height: 30px;
+  border-radius: 100%;
+  border: 6px solid #b393d3;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+.button1:hover::after, .button1:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+</style>
+<div class="wrapper" style="margin-top: 30%;" >
+
+<footer class="text-center text-white " >
+    <!-- Grid container -->
+    <div class="container p-4">
+      <section class="mb-4 ">
+        <p>
+          Благодарим вас за посещение сайта!!!<br> Сайт находится на этапе разработки и постепенно будет улучшаться<br> А поддержать нас можно по ссылке ниже, с вашей помощью скорость развитие сайта и качество предоставляемого контента увеличться<br> Приятного просмотра!
+        </p>
+        <div class="wrap" style = "margin-top:10%;margin-bottom:30%;" >
+          <a href = "https://my.qiwi.com/DANYLA-Sx91OTiPvU" >
+          <button class="button1" >Поддержать</button>
+          </a>
+        </div>
+      </section>
+      
+    </div>
+    
+    <div class="text-left p-4" style="background-color: rgba(0, 0, 0, 0.1);">
+      © 2023: aniheart
+      
+    </div>
+    <!-- Copyright -->
+  </footer>
+</div>
+  <!-- Footer -->
+
+
+
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    
+    <script type="text/javascript"></script>
+    
+    <script src="../jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../script.js"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    
+</body>
+
+</html>
